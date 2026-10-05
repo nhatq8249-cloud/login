@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+
+    <style>
+        div {
+            margin-bottom: 10px;
+        }
+
+        form {
+            color: blue;
+            background: #7CFC00;
+        }
+
+        legend {
+            color: red;
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            background-color: lightyellow;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        #videoContainer {
+            display: none;
+            margin-top: 20px;
+        }
+
+        video {
+            width: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>HTML Demo Login Form</h1>
+
+    <form action="#" id="loginForm">
+        <fieldset>
+            <legend>User Login</legend>
+
+            <div>
+                <label for="username">Username</label>
+                <input
+                    type="text"
+                    name="username"
+                    id="username"
+                    placeholder="Enter username"
+                >
+            </div>
+
+            <div>
+                <label for="password">Password</label>
+                <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Enter password"
+                >
+            </div>
+
+            <div>
+                <input type="submit" value="Login" id="login">
+            </div>
+        </fieldset>
+    </form>
+
+    <div id="videoContainer">
+        <video id="video" controls>
+            <source src="thubancantimoday.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <script>
+        const usernameInput = document.getElementById("username");
+        const passwordInput = document.getElementById("password");
+        const loginForm = document.getElementById("loginForm");
+        const videoContainer = document.getElementById("videoContainer");
+        const video = document.getElementById("video");
+
+        loginForm.addEventListener("submit", processLogin);
+
+        function processLogin(event) {
+            event.preventDefault();
+
+            if (usernameInput.value !== "" && passwordInput.value !== "") {
+                videoContainer.style.display = "block";
+                video.currentTime = 0;
+                video.play();
+            }
+        }
+    </script>
+</body>
+</html>
